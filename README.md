@@ -17,4 +17,4 @@ Data is fetched from public API for crypto-currency time-series.
 ## Legal
 Licensed under [GPLv3](./LICENSE).
 
-Copyright (C) 2024 yuval1337. All rights reserved.
+Copyright (C) 2024 yuvalroo. All rights reserved.
