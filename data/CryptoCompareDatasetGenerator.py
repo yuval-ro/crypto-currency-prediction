@@ -66,9 +66,9 @@ class CryptoCompareDatasetGenerator:
     y = df[self.TARGET].to_numpy()
     return X, y
 
-  def train_valid_test_split(self, test_size = .2):
+  def split(self, test_size = .2):
     """
-    Split stored dataset.
+    Split stored dataset into train, validation and test sub-datasets.
     """
     
     # Fixed: Split the actual data (X and y), not the symbol and to strings

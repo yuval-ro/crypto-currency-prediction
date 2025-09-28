@@ -5,7 +5,7 @@ from model import Model
 if __name__ == '__main__':
   # Obtain the data, then split it
   generator = DatasetGenerator('btc', 'usd')
-  train_dataset, valid_dataset, test_dataset = generator.train_valid_test_split()
+  train_dataset, valid_dataset, test_dataset = generator.split()
   
   # Instanciate the model
   model = Model(generator.dataset)
