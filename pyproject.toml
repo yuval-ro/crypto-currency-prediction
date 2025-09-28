@@ -1,22 +1,24 @@
-[tool.poetry]
+[project]
 name = "crypto-currency-prediction"
 version = "0.1.0"
-description = ""
-authors = ["yuval-ro <yuvalro@protonmail.com>"]
+description = "Default template for PDM package"
+authors = [{ name = "", email = "" }]
+dependencies = [
+    "torch>=2.8.0",
+    "scikit-learn>=1.7.2",
+    "pandas>=2.3.2",
+    "matplotlib>=3.10.6",
+    "requests>=2.32.5",
+    "numpy>=2.3.3",
+]
+requires-python = "==3.11.*"
 readme = "README.md"
-packages = [{include = "crypto_currency_prediction"}]
-
-[tool.poetry.dependencies]
-python = "^3.11"
-autopep8 = "^2.0.2"
-requests = "^2.31.0"
-pandas = "^2.0.2"
-torch = "^2.0.1"
-scikit-learn = "^1.2.2"
-matplotlib = "^3.7.1"
-sty = "^1.0.4"
+license = { text = "MIT" }
 
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[tool.pdm]
+distribution = false
+
+[tool.pdm.scripts]
+start = { cmd = ["./.venv/bin/python3", "__main__.py"] }
+deploy = { shell = "docker build -t crypto-predictor . && docker run -v $(pwd)/outputs:/app/outputs crypto-predictor" }

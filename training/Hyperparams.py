@@ -1,9 +1,8 @@
-from .lib_typing import Optimizer, Literal, Tensor, Callable
-from .early_stopper import EarlyStopper
-
+from torch.optim import Optimizer
+from typing import Literal, Callable
+from .EarlyStopper import EarlyStopper
 
 class Hyperparams:
-  '''Bundles hyperparameters for model training.'''
   loss_fn: Callable
   optimizer: Optimizer
   epochs: int
@@ -12,24 +11,24 @@ class Hyperparams:
   reg_factor: float
   stopper: EarlyStopper
 
-  def __init__(self,
-               loss_fn: Callable,
-               optimizer: Optimizer,
-               epochs: int,
-               batch_size: int,
-               learn_rate: float,
-               reg_factor: float,
-               tolerance: Literal['low', 'med', 'high', 'off']) -> None:
+  def __init__(
+    self,
+    loss_fn: Callable,
+    optimizer: Optimizer,
+    epochs: int,
+    batch_size: int,
+    learn_rate: float,
+    reg_factor: float,
+    tolerance: Literal['low', 'med', 'high'] = None
+  ):
     self.loss_fn = loss_fn
     self.optimizer = optimizer
     self.epochs = epochs
     self.batch_size = batch_size
     self.learn_rate = learn_rate
     self.reg_factor = reg_factor
-    if tolerance != 'off':
+    if tolerance:
       self.stopper = EarlyStopper(tolerance)
-    else:
-      self.stopper = None
 
   def get_optimizer(self, model_params) -> Optimizer:
     if self.learn_rate == None:

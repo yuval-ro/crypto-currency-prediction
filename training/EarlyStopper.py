@@ -1,10 +1,8 @@
-from .lib_typing import *
-
+from typing import Literal
 
 class EarlyStopper:
-  '''Implementation of an early-stopping mechanism for model training.'''
-  patience: int  # number of epochs to wait before stopping
-  delta: float  # minimum improvement required to be considered as an improvement
+  patience: int  # Maximum number of epochs to pass before stopping
+  delta: float  # Minimum threshold value required to be considered as an improvement
   best_loss: float
   counter: int
 

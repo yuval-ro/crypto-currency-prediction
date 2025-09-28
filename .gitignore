@@ -1,5 +1,6 @@
 *.csv
 *.pth
+*.png
 
 
 # Byte-compiled / optimized / DLL files

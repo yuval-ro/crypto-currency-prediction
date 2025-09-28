@@ -1,0 +1,1 @@
+from .CryptoPredictorModel import CryptoPredictorModel as Model
