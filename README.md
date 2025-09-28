@@ -27,7 +27,7 @@ Clean, intuitive interface that abstracts PyTorch complexity:
 
 ```python
 generator = DatasetGenerator('btc', 'usd')
-train_ds, valid_ds, test_ds = generator.train_valid_test_split()
+train_ds, valid_ds, test_ds = generator.split()
 
 model = Model(generator.dataset)
 trainer = ModelTrainer(model)
